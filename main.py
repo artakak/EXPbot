@@ -103,7 +103,7 @@ class EXPbot:
     @staticmethod
     def redmine_info():
         t_time = datetime.date.today()
-        redmine = Redmine('http://help.heliosoft.ru', key='ceb184c8482614bd34a72612861176c9a02732ee')
+        redmine = Redmine('http://help.heliosoft.ru', key='')
         issues_open_prov = redmine.issue.filter(project_id='experium', status_id='3', cf_19='me')
         issues_open_me = redmine.issue.filter(assigned_to_id='me')
         issues_open_all_totay = redmine.issue.filter(project_id='experium', created_on=str(t_time))
@@ -142,7 +142,7 @@ class EXPbot:
             chat_id = str(update.callback_query.message.chat_id)
             self.curmsg[str(update.callback_query.from_user.id)] = update.callback_query.message.message_id
             callback = 1
-        self.J = Jenkins('http://buildsrv.experium.ru/', username="golubkin", password="aquasoft")
+        self.J = Jenkins('http://buildsrv.experium.ru/', username="", password="")
         text = u'*Список доступных работ:*\n'
         buttons = []
         for t in self.J.keys():
